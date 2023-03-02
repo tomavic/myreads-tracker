@@ -7,11 +7,10 @@ import Shelf from '../../components/shelf/shelf';
 import { shelves } from 'src/app/models/book';
 import { useBooksContext } from 'src/app/context/books-context';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { Container, Navbar } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 import { useEffect } from 'react';
 import * as BooksAPI from '../../../app/api/BooksAPI';
+import { Box, Container } from '@chakra-ui/react';
 
 export default function HomePage() {
   const { state, dispatch } = useBooksContext();
@@ -30,24 +29,21 @@ export default function HomePage() {
 
   return (
     <div className="list-books">
-      <Navbar bg="dark">
+      <Box bg="gray.600" paddingY={'20px'}>
         <Container>
-          <Navbar.Brand>
-            <img
-              src="/favicon.ico"
-              width="30"
-              height="30"
-              className="d-inline-block align-top rounded"
-              alt="MyBooks Tracker"
-            />{' '}
-            <span className="text-light text-center">MyBooks Tracker</span>
-          </Navbar.Brand>
-
+          <img
+            src="/favicon.ico"
+            width="30"
+            height="30"
+            className="d-inline-block align-top rounded"
+            alt="MyBooks Tracker"
+          />{' '}
+          <span className="text-light text-center">MyBooks Tracker</span>
           <Link to={PATHS.search}>
-            <FontAwesomeIcon className="text-light" icon={faSearch} />
+            {/* <FontAwesomeIcon className="text-light" icon={faSearch} /> */}
           </Link>
         </Container>
-      </Navbar>
+      </Box>
 
       <div className="list-books-content mt-5">
         <DndProvider backend={HTML5Backend}>

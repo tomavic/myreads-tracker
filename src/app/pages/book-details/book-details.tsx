@@ -1,8 +1,6 @@
-import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Box, Button, Container } from '@chakra-ui/react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { useEffect, useState } from 'react';
-import { Button, Container, Navbar } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { BookData } from 'src/app/models/book';
 import { PATHS } from 'src/app/models/conf';
@@ -24,17 +22,17 @@ function BookDetails() {
 
   return (
     <>
-      <Navbar bg="dark">
+      <Box bg="dark">
         <Container>
           <Link title="Back" to={PATHS.list}>
             <Button className="text-nowrap me-4" variant="dark">
-              <FontAwesomeIcon className="me-1" icon={faCircleChevronLeft} />
+              {/* <FontAwesomeIcon className="me-1" icon={faCircleChevronLeft} /> */}
               Back
             </Button>
           </Link>
           <div className="d-flex flex w-100"></div>
         </Container>
-      </Navbar>
+      </Box>
       <Container>
         {loading ? (
           <Player

@@ -7,13 +7,10 @@ import {
 import { DEFAULT_BOOK_COVER, DND } from 'src/app/models/conf';
 import { useDrag } from 'react-dnd';
 import { useBooksContext } from 'src/app/context/books-context';
-import Card from 'react-bootstrap/Card';
-import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsis, faEye } from '@fortawesome/free-solid-svg-icons';
-import { Button } from 'react-bootstrap';
+
 import * as BooksAPI from '../../api/BooksAPI';
+import { Card } from '@chakra-ui/react';
 
 type BookProps = {
   book: BookData;
@@ -94,52 +91,7 @@ export default function Book({ book }: BookProps) {
 
   return (
     <Card ref={drag} className="book" style={{ opacity }}>
-      <div className="card-more">
-        <Dropdown onSelect={updateOnSelect}>
-          <Dropdown.Toggle className="w-100" variant="dark" id="dropdown-basic">
-            <FontAwesomeIcon className="text-light" icon={faEllipsis} />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            {Object.keys(shelves).map((s) => {
-              return (
-                <Dropdown.Item
-                  eventKey={s}
-                  active={book.shelf === s}
-                  key={s}
-                  value={s}
-                >
-                  {shelves[s]}
-                </Dropdown.Item>
-              );
-            })}
-          </Dropdown.Menu>
-        </Dropdown>
-      </div>
-      <Card.Img variant="top" src={bookCover} />
-      <Card.Body>
-        <Card.Title>{book.title}</Card.Title>
-        <Card.Text>
-          Authors:{' '}
-          {book.authors &&
-            book.authors.map((author) => <span key={author}>{author}</span>)}
-        </Card.Text>
-        <p className="mt-3">
-          {book.ratingsCount ? 'Ratings: ' + book.ratingsCount : ''}
-        </p>
-        <Link to={'/book/' + book.id}>
-          <Button className="w-100" variant="primary" size="lg">
-            <FontAwesomeIcon className="text-light me-1" icon={faEye} />
-            View Details
-          </Button>
-        </Link>
-      </Card.Body>
-      <Card.Footer>
-        <small>
-          Published {book.publisher ? 'by ' + book.publisher + ' | ' : ''}{' '}
-          {book.publishedDate}
-        </small>
-      </Card.Footer>
+      hola
     </Card>
   );
 }

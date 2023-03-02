@@ -1,10 +1,8 @@
-import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { Button, Container } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { PATHS } from '../models/conf';
 import { Link } from 'react-router-dom';
+import { Button, Container } from '@chakra-ui/react';
 
 function NotFound() {
   return (
@@ -18,7 +16,7 @@ function NotFound() {
       />
       <Link title="Back" to={PATHS.list}>
         <Button className="w-100 mt-5" variant="success" size="lg">
-          <FontAwesomeIcon className="text-light me-1" icon={faHome} />
+          {/* <FontAwesomeIcon className="text-light me-1" icon={faHome} /> */}
           Back to Home
         </Button>
       </Link>

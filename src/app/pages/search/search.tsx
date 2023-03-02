@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
@@ -9,10 +9,9 @@ import BookGrid from '../../components/book-grid/book-grid';
 
 import { useBooksContext } from 'src/app/context/books-context';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { Button, Container, Form, Navbar } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
 import * as BooksAPI from '../../api/BooksAPI';
+import { Box, Button, Container } from '@chakra-ui/react';
 
 export default function Search() {
   const { state, dispatch } = useBooksContext();
@@ -61,16 +60,16 @@ export default function Search() {
     <DndProvider backend={HTML5Backend}>
       <div className="search-books">
         {/* ! Search Bar */}
-        <Navbar bg="dark">
+        <Box bg="dark">
           <Container>
             <Link title="Back" to={PATHS.list}>
               <Button className="text-nowrap me-4" variant="dark">
-                <FontAwesomeIcon className="me-1" icon={faCircleChevronLeft} />
+                {/* <FontAwesomeIcon className="me-1" icon={faCircleChevronLeft} /> */}
                 Back
               </Button>
             </Link>
             <Form className="d-flex flex w-100">
-              <Form.Control
+              {/* <FormControl.
                 type="search"
                 className="me-2"
                 aria-label="Search"
@@ -79,10 +78,10 @@ export default function Search() {
                 placeholder="Search by title, author, or ISBN"
                 value={state.searchKeyTerm}
                 onChange={handleSearch}
-              />
+              /> */}
             </Form>
           </Container>
-        </Navbar>
+        </Box>
 
         {state.loading ? (
           <Player
